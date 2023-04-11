@@ -1,0 +1,55 @@
+GET http://localhost:9000/users
+
+###
+
+GET http://localhost:9000/users/641b12361a7259fa4a3f68e6
+
+###
+
+POST http://localhost:9000/users
+Content-Type: application/json
+
+{
+    "firstName":"Sachin",
+    "lastName":"Tendulkar",
+    "email":"sachin@testmail.com",
+    "contact":"9987654321",
+    "address":"Mumbai",
+    "userName":"sachin123",
+    "password":"password123",
+    "isAdmin":true
+}
+
+###
+
+POST http://localhost:9000/login
+Content-Type: application/json
+
+{
+    "userName":"sachin123",
+    "password":"password123"
+}
+
+###
+GET http://localhost:9000/bookings
+Content-Type: application/json
+
+
+###
+GET http://localhost:9000/bookings/642adfffe27b4d28ca4041c7
+Content-Type: application/json
+
+
+###
+POST http://localhost:9000/bookings
+Content-Type:application/json
+
+{
+    "booking_item":"Court-1",
+    "booking_date":"2023-04-05",
+    "booking_time_start":"17:00",
+    "booking_time_end":"17:30",
+    "booking_price":8,
+    "booking_status":"confirm",
+    "userName":"venky123"
+}
