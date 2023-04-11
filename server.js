@@ -1,12 +1,16 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('Connected to MongoDB...'));
 
 app.use(express.json())
+app.use(cors({
+  origin:'*'
+}))
 
 app.get('/',(req,res) =>{
    res.send('Backend Server Greets you...')
