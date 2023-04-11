@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "build:dev": "webpack --config webpack.config.js --mode development"
+    "start": "node server.js"
   },
   "author": "SwaroopPolepaka",
   "license": "ISC",
