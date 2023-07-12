@@ -26,15 +26,35 @@ router.post('/',async(req,res) =>{
 
         // const salt = bcrypt.genSalt()
         //const hashedPassword = await bcrypt.hash(req.body.password,10)
+        const{
+            booking_item,
+            booking_date,
+            booking_time_start,
+            booking_time_end,
+            booking_price,
+            booking_status,
+            userName,
+            firstName,
+            lastName,
+            email,
+            contact,
+            playersCount,
+            createdBy
+        } = req.body;
         const bookObj = new BookingModel({
-
-            booking_item:req.body.booking_item,
-            booking_date:req.body.booking_date,
-            booking_time_start:req.body.booking_time_start,
-            booking_time_end:req.body.booking_time_end,
-            booking_price:req.body.booking_price,
-            booking_status:req.body.booking_status,
-            userName:req.body.userName
+            booking_item,
+            booking_date,
+            booking_time_start,
+            booking_time_end,
+            booking_price,
+            booking_status,
+            userName,
+            firstName,
+            lastName,
+            email,
+            contact,
+            playersCount,
+            createdBy
         })
 
         const newBooking = await bookObj.save()
@@ -45,23 +65,42 @@ router.post('/',async(req,res) =>{
     }
 })
 // Updating One
-router.patch('/:id',getBooking,(req,res) =>{
-
+router.patch('/:id',getBooking,async(req,res) =>{
+    const{booking_date,booking_time_start,booking_time_end,booking_item,booking_price} = req.body
+    if(booking_date !== null){
+        res.booking.booking_date = booking_date;
+    }
+    if(booking_time_start !== null){
+        res.booking.booking_time_start = booking_time_start;
+    }
+    if(booking_time_end !== null){
+        res.booking.booking_time_end = booking_time_end;
+    }
+    if(booking_item !== null){
+        res.booking.booking_item = booking_item;
+    }
+    if(booking_price !== null){
+        res.booking.booking_price = booking_price;
+    }
+    try{
+        const updated_booking = await res.booking.save();
+        res.status(200).json(updated_booking)
+    }catch(err){
+         res.status(400).json({message:err.message})
+        //res.send(err.message)
+    }
+    
 })
 // Delete One
 router.delete('/:id',getBooking,async(req,res) =>{
     try{
-        await res.user.remove()
-        res.json({message:'User deleted Successfully !!'})
+        await res.booking.deleteOne();
+        res.status(200).json({message:'Booking deleted Successfully !!'})
 
     }catch(err){
         res.status(500).json({message:err.message})
     }
 })
-
-
-
-
 
 //middleware to get a single user
 async function getBooking(req,res,next){

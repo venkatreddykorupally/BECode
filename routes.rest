@@ -36,12 +36,43 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:9000/bookings/642adfffe27b4d28ca4041c7
+GET http://localhost:9000/bookings/649fdd1de8240c6cd3fc6bbe
 Content-Type: application/json
 
 
 ###
-POST http://localhost:9000/bookings
+PATCH  http://localhost:9000/bookings/649fdd1de8240c6cd3fc6bbe
+Content-Type:application/json
+
+{ 
+    "booking_item": null,
+    "booking_date": "2023-07-03",
+    "booking_time_start": null,
+    "booking_time_end": null,
+    "booking_price": null
+}
+###
+PATCH http://localhost:9000/bookings/649fdd1de8240c6cd3fc6bbe
+Content-Type:application/json
+
+{
+  "_id": "649fdd1de8240c6cd3fc6bbe",
+  "booking_item": "1",
+  "booking_date": "2023-07-07",
+  "booking_time_start": "21:00",
+  "booking_time_end": "21:30",
+  "booking_price": 10.5,
+  "booking_status": "Confirm",
+  "userName": "Virat123",
+  "firstName": "Viraat",
+  "lastName": "Kohli",
+  "email": "virat@testmail.com",
+  "contact": "123456789",
+  "playersCount": 4,
+}
+
+###
+POST http://localhost:9000/pbookings
 Content-Type:application/json
 
 {
@@ -53,3 +84,9 @@ Content-Type:application/json
     "booking_status":"confirm",
     "userName":"venky123"
 }
+###
+GET http://localhost:9000/perbookings
+Content-Type: application/json
+
+###
+DELETE http://localhost:9000/bookings/649fdd1de8240c6cd3fc6bbe

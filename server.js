@@ -19,10 +19,12 @@ app.get('/',(req,res) =>{
 const usersRouter = require('./routes/users')
 const loginRouter = require('./routes/login')
 const bookingRouter = require('./routes/bookCourts')
+const pbookingRouter = require('./routes/perBookCourts')
 
 app.use('/users',usersRouter)
 app.use('/login',loginRouter)
 app.use('/bookings',bookingRouter)
+app.use('/perbookings',pbookingRouter)
 
 
 app.listen(9000,() => console.log('Server has Started...'))

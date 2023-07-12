@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
-const bookingSchema = new mongoose.Schema({
+const perbookingSchema = new mongoose.Schema({
     booking_item:{
         type:String,
         required:true
     },
-    booking_date:{
+    booking_date_start:{
+        type:String,
+        required:true
+    },
+    booking_date_end:{
         type:String,
         required:true
     },
@@ -25,33 +29,30 @@ const bookingSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    userName:{
+    booking_type:{
         type:String,
         required:true
     },
-    firstName:{
+    pay_status:{
         type:String,
         required:true
     },
-    lastName:{
-        type:String,
-        required:true
-    },
-    email:{
-        type:String,
-        required:true
-    },
-    contact:{
-        type:String,
-        required:true
-    },
-    playersCount:{
+    players_count:{
         type:Number,
         required:true
     },
-    createdBy:{
-        type:String
+    day_of_week:{
+        type:String,
+        required:true
+    },
+    court_no:{
+        type:Number,
+        required:true
+    },
+    userName:{
+        type:String,
+        required:true
     }
     
 })
-module.exports =  mongoose.model('BookingModel',bookingSchema)
+module.exports =  mongoose.model('PerBookingModel',perbookingSchema)
