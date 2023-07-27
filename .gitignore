@@ -3,3 +3,4 @@ node_modules
 dist
 webpack.config.js
 package-lock.json
+routes.rest

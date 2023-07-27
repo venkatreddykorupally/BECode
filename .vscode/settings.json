@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1da04b17-1192-4ab9-be32-49de28707fac/resourceGroups/Badminton/providers/Microsoft.Web/sites/beplaybadminton",
+    "appService.deploySubpath": "dev-build"
+}
