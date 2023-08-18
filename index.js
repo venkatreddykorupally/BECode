@@ -27,4 +27,4 @@ app.use('/bookings',bookingRouter)
 app.use('/perbookings',pbookingRouter)
 
 
-//app.listen(9000,() => console.log('Server has Started...'))
+app.listen(9000,() => console.log('Server has Started...'))
